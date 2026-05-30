@@ -1,2 +1,60 @@
-topic.png
+# macOS / editor noise
 .DS_Store
+**/.DS_Store
+topic.png
+Thumbs.db
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.cache/
+
+# Large datasets, archives, checkpoints, and experiment artifacts
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.pickle
+*.npz
+*.npy
+
+# BackdoorBench generated data/results.
+record/*
+!record/readme.md
+
+# Notebook experiment workspaces
+notebooks_finetuning/**/data/
+notebooks_finetuning/**/extracted/
+notebooks_finetuning/**/outputs/
+notebooks_finetuning/**/*.zip
+notebooks_finetuning/**/*.pt
+notebooks_finetuning/**/*.pth
+notebooks_finetuning/**/*.csv
+notebooks_finetuning/**/*.json
+notebooks_finetuning/**/*.png
+
+# Common local folders created outside notebooks.
+data/cifar-10-batches-py/
+data/cifar-10-python.tar.gz
