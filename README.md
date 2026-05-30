@@ -37,7 +37,7 @@ Create and activate a Python environment, then install the packages needed by th
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install torch torchvision numpy pillow tqdm pyyaml pandas matplotlib jupyter ipykernel
+python -m pip install -r notebooks_finetuning/requirements.txt
 python -m ipykernel install --user --name backdoor-finetuning --display-name "Backdoor Fine-Tuning"
 ```
 
