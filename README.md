@@ -131,6 +131,12 @@ Google Colab notebook for running a fine-tuning sweep.
 
 This notebook intentionally contains Colab-specific paths such as `/content/...` and Google Drive mounting code. Use it in Colab rather than as a local notebook.
 
+### `multi_attack_training_colab.ipynb`
+
+Google Colab notebook used to train multiple backdoored CIFAR-10 models from the selected attack suite.
+
+It is included to document that we also attempted model training, not only post-training evaluation and fine-tuning. This notebook is Colab-specific and should be run with a GPU runtime.
+
 ## Helper Scripts
 
 The pruning and quantization notebooks call small helper scripts in `defense/`:
