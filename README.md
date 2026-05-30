@@ -4,11 +4,11 @@ This repository contains the code and notebooks used for our Security and Privac
 
 The project is based on BackdoorBench-style CIFAR-10 attack checkpoints. We evaluate whether backdoors remain active after applying several post-training or fine-tuning techniques, including:
 
-- standard fine-tuning sweeps
+- Standard fine-tuning sweeps
 - Conv-LoRA fine-tuning
-- knowledge distillation
-- pruning
-- simulated weight quantization
+- Knowledge distillation
+- Pruning
+- Simulated weight quantization
 
 ## Model Files
 
@@ -169,4 +169,3 @@ Most notebooks write results under their own `outputs/` folder. These outputs ar
 - ASR means attack success rate.
 - A backdoor is considered present when ASR is above the configured threshold.
 - Extreme compression, such as 2-bit quantization, can destroy the whole classifier. In that case a lower ASR does not necessarily mean a useful defense, because clean accuracy may also collapse.
-

@@ -30,7 +30,7 @@ from utils.trainer_cls import given_dataloader_test
 
 def add_common_args(parser):
     parser.add_argument("--result_file", required=True)
-    parser.add_argument("--device", default="mps")
+    parser.add_argument("--device", default="auto")
     parser.add_argument("--batch_size", type=int, default=256)
     parser.add_argument("--num_workers", type=int, default=0)
     parser.add_argument("--threshold", type=float, default=0.5)
@@ -39,7 +39,13 @@ def add_common_args(parser):
 
 
 def resolve_device(requested):
-    if requested == "mps" and not torch.backends.mps.is_available():
+    if requested == "auto":
+        if torch.cuda.is_available():
+            return "cuda"
+        if hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+            return "mps"
+        return "cpu"
+    if requested == "mps" and not (hasattr(torch.backends, "mps") and torch.backends.mps.is_available()):
         print("MPS is not available; falling back to CPU.", file=sys.stderr)
         return "cpu"
     if requested == "cuda" and not torch.cuda.is_available():
