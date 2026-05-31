@@ -93,6 +93,18 @@ Outputs are written to:
 notebooks_finetuning/quantization/outputs/
 ```
 
+### `torch_ao_quantization_eval.py`
+
+Runs a separate PyTorch AO quantization experiment on model folders already available in `record/`.
+
+This script is different from `quantization.ipynb`: the notebook performs a controlled simulated weight-only sweep, while this script tests PyTorch quantization options such as dynamic quantization, static post-training quantization, and float16 evaluation.
+
+The companion shell script runs the experiment over the selected model folders:
+
+```text
+notebooks_finetuning/run_torch_ao_quantization_eval.sh
+```
+
 ### `distillation.ipynb`
 
 Runs knowledge distillation from a backdoored teacher model into a student model.
@@ -144,11 +156,18 @@ The pruning and quantization notebooks call small helper scripts in `defense/`:
 ```text
 defense/check_backdoor.py
 defense/compress_and_check.py
-defense/quantize_and_check.py
+defense/simulated_weight_quantization_check.py
 defense/compression_eval_utils.py
 ```
 
 These scripts load BackdoorBench attack results, evaluate clean accuracy and ASR, and write JSON metrics consumed by the notebooks.
+
+The additional PyTorch AO quantization experiment can be run with:
+
+```text
+notebooks_finetuning/torch_ao_quantization_eval.py
+notebooks_finetuning/run_torch_ao_quantization_eval.sh
+```
 
 ## Running A Local Notebook
 
